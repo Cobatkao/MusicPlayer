@@ -1,0 +1,59 @@
+* {padding: 0; margin: 0; box-sizing: border-box;}
+*::before, *::after {box-sizing: border-box}
+
+@keyframes coverRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: transparent url(./img/cover-blur) no-repeat center center;
+  background-size: cover;
+}
+
+.disc-container {
+  position: relative;
+}
+.disc-container > .pointer {
+  width: 24vw;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-19%);
+}
+.disc-container .disc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18vw;
+}
+.disc-container > .disc > .ring {
+  width: 72vw;
+}
+.disc-container > .disc > .light {
+  width: 72vw;
+  position: absolute;
+  animation: coverRotate linear 20s infinite;
+}
+.disc-container > .disc > .cover {
+  width: 45vw;
+  position: absolute;
+  border-radius: 100%;
+  display: block;
+  animation: coverRotate linear 20s infinite;
+}
+
+.song-description {
+
+}
+
+.page > .links {
+
+}
