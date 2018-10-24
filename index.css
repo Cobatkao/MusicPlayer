@@ -1,13 +1,36 @@
-* {padding: 0; margin: 0; box-sizing: border-box;}
-*::before, *::after {box-sizing: border-box}
-body {font-family: Helvetica, sans-serif; font-size: 3.7vw; width: 100%;}
-a {text-decoration: none;}
-ul, ol {list-style: none;}
-h1, h2, h3 {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 3.7vw;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
   font-weight: normal;
 }
 
-section > h2:first-child {
+section>h2:first-child {
   font-size: 4.5vw;
   border-left: 2px solid #d33a31;
   padding-left: 9px;
@@ -23,11 +46,13 @@ section > h2:first-child {
   align-items: center;
   justify-content: space-between;
 }
-.topbar > .logosvg {
+
+.topbar>.logosvg {
   width: 38vw;
   height: 6.7vw;
 }
-.topbar > .download-app {
+
+.topbar>.download-app {
   line-height: 8.5vw;
   border: 1px solid #fff;
   border-radius: 4.25vw;
@@ -36,26 +61,30 @@ section > h2:first-child {
   padding: 0 10px;
 }
 
-.sitenav > ol {
+.sitenav>ol {
   display: flex;
   text-align: center;
   border-bottom: 1px solid #ccc;
   cursor: pointer;
 }
-.sitenav > ol > li {
+
+.sitenav>ol>li {
   flex: 1;
 }
-.sitenav > ol > li.active {
+
+.sitenav>ol>li.active {
   color: #d43c33;
 }
-.sitenav > ol > li > span {
+
+.sitenav>ol>li>span {
   display: inline-block;
   height: 11vw;
   line-height: 11vw;
   padding: 0 5px;
 }
+
 /*点击触发下划线*/
-.sitenav > ol > li.active > span {
+.sitenav>ol>li.active>span {
   border-bottom: 2px solid #d43c33;
   font-size: 15px;
 }
@@ -63,18 +92,22 @@ section > h2:first-child {
 .playlists {
   margin-top: 5vw;
 }
-.playlists > ul {
+
+.playlists>ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.playlists > ul > li {
+
+.playlists>ul>li {
   width: calc(33.333333% - 1px)
 }
-.playlists > ul > li > img {
+
+.playlists>ul>li>img {
   width: 100%;
 }
-.playlists > ul > li > p {
+
+.playlists>ul>li>p {
   font-size: 13px;
   padding: 6px 2px 0 6px;
   color: #333;
@@ -87,25 +120,36 @@ section > h2:first-child {
   margin-bottom: 15px;
 }
 
-.latestmusic {
-
+.latestmusic>p {
+  text-align: center;
 }
-.latestmusic > ol {
+
+.latestmusic>ol {
   padding-left: 9px;
 }
-.latestmusic > ol > li {
+
+.latestmusic>ol>li {
   font-size: 17px;
   padding: 6px 0;
   border-bottom: 1px solid #e2e2e2;
   position: relative;
 }
-.latestmusic > ol > li > p {
-  font-size: 12px;
-  color: #888;
+
+.latestmusic>ol>li>a {
+  color: inherit;
+}
+
+.latestmusic>ol>li>a>p.song-info {
   display: flex;
   align-items: center;
 }
-.latestmusic > ol .icon-play {
+
+.latestmusic>ol>li>a>p.song-info>span {
+  font-size: 12px;
+  color: #888;
+}
+
+.latestmusic>ol>li>a>.icon-play {
   fill: #aaa;
   width: 5.9vw;
   height: 5.9vw;
@@ -114,13 +158,15 @@ section > h2:first-child {
   top: 50%;
   transform: translateY(-50%);
 }
-.latestmusic > ol .icon-sq {
+
+.latestmusic>ol>li>a>p.song-info>.icon-sq {
   fill: #fe672e;
   width: 3.2vw;
   height: 3.2vw;
   margin-right: 4px;
   display: inline-block;
-  line-height: 17px;;
+  line-height: 17px;
+  ;
 }
 
 section.art {
@@ -128,15 +174,18 @@ section.art {
   background-size: cover;
   padding-bottom: 6vw;
 }
-section.art > .logo {
+
+section.art>.logo {
   text-align: center;
   padding-top: 14.6vw;
 }
-section.art > .logo > .logosvg {
+
+section.art>.logo>.logosvg {
   width: 61.7vw;
   height: 11.7vw;
 }
-section.art > .openApp {
+
+section.art>.openApp {
   display: block;
   width: 81.3vw;
   border: 1px solid #d33a31;
@@ -149,7 +198,8 @@ section.art > .openApp {
   margin-top: 15px;
   margin-bottom: 3vw;
 }
-section.art > .copyright {
+
+section.art>.copyright {
   font-size: 12px;
   color: #888;
   display: block;

@@ -1,7 +1,21 @@
-* {padding: 0; margin: 0; box-sizing: border-box;}
-*::before, *::after {box-sizing: border-box}
-body {font-family: Helvetica, sans-serif;}
-a {text-decoration: none;}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
 
 @keyframes coverRotate {
   from {
@@ -24,19 +38,22 @@ a {text-decoration: none;}
 .disc-container {
   position: relative;
 }
-.disc-container > .pointer {
+
+.disc-container>.pointer {
   width: 25.6vw;
   position: absolute;
   left: 50%;
   transform: translateX(-19%);
 }
+
 .disc-container .disc {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 18vw;
 }
-.disc-container > .disc > .icon-wrapper {
+
+.disc-container>.disc>.icon-wrapper {
   position: absolute;
   z-index: 1;
   display: flex;
@@ -48,35 +65,43 @@ a {text-decoration: none;}
   border-radius: 50%;
   background-color: rgba(0, 0, 0, .5)
 }
-.disc-container > .disc > .icon-wrapper > .icon {  
+
+.disc-container>.disc>.icon-wrapper>.icon {
   fill: #fff;
   width: 6vw;
 }
-.disc-container > .disc > .ring {
+
+.disc-container>.disc>.ring {
   width: 78vw;
 }
-.disc-container > .disc > .light {
+
+.disc-container>.disc>.light {
   width: 78vw;
   position: absolute;
 }
-.disc-container > .disc > .cover {
+
+.disc-container>.disc>.cover {
   width: 45vw;
   position: absolute;
   border-radius: 100%;
   display: block;
 }
+
 .disc-container.playing .light,
 .disc-container.playing .cover {
   animation: coverRotate linear 20s infinite;
 }
+
 /*未播放时暂停按钮隐藏*/
-.disc-container .icon-pause {  
+.disc-container .icon-pause {
   display: none;
 }
+
 /*播放后暂停按钮出现，播放按钮隐藏*/
 .disc-container.playing .icon-pause {
   display: block;
 }
+
 .disc-container.playing .icon-play {
   display: none;
 }
@@ -88,29 +113,32 @@ a {text-decoration: none;}
   margin-top: 20px;
   flex-grow: 1;
 }
-.song-description > h2 {
+
+.song-description>h2 {
   font-size: 18px;
 }
-.song-description > .lyric {
+
+.song-description>.lyric {
   font-size: 14px;
   height: 84px;
   overflow: hidden;
 }
-.song-description > .lyric > p {
+
+.song-description>.lyric>p {
   line-height: 24px;
 }
-.song-description > .lyric > p.active {
 
-}
+.song-description>.lyric>p.active {}
 
-.page > .links {
+.page>.links {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 10px;
   margin-bottom: 10px;
 }
-.page > .links > a {
+
+.page>.links>a {
   width: 46vw;
   height: 11vw;
   line-height: 11vw;
@@ -122,7 +150,8 @@ a {text-decoration: none;}
   letter-spacing: 0.25em;
   font-stretch: 100%;
 }
-.page > .links > a.btn-download {
+
+.page>.links>a.btn-download {
   background: #d43b32;
   color: #fff;
   margin-left: 10px;
