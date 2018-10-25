@@ -78,6 +78,8 @@ a {
 .disc-container>.disc>.light {
   width: 78vw;
   position: absolute;
+  animation: coverRotate linear 20s infinite;
+  animation-play-state: paused;
 }
 
 .disc-container>.disc>.cover {
@@ -85,11 +87,13 @@ a {
   position: absolute;
   border-radius: 100%;
   display: block;
+  animation: coverRotate linear 20s infinite;
+  animation-play-state: paused;
 }
 
 .disc-container.playing .light,
 .disc-container.playing .cover {
-  animation: coverRotate linear 20s infinite;
+  animation-play-state: running;
 }
 
 /*未播放时暂停按钮隐藏*/
