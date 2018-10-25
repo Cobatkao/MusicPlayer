@@ -1,5 +1,4 @@
 $(function () {
-  //获取请求歌曲的url
   let id = parseInt(location.search.match(/\bsongid=([^&]*)/)[1])
   $.get('./songs.json').then(function (response) {
     let verysong = response
@@ -9,9 +8,20 @@ $(function () {
     )[0]
     //解构获取url
     let {
-      url
+      url, name, singer, lyric
     } = songs
+    initMusicplayer.call(null, url)
+    initSongInfo(name, singer, lyric)
+  })
 
+  //拼装歌名、歌手、歌词区域
+  function initSongInfo(name, singer, lyric) {
+    $('.song-description > h2').text(name + ' - ' + singer)
+    parseMusicLyric.call(null, lyric)
+  }
+
+  //请求歌曲url
+  function initMusicplayer(url) {
     let audio = document.createElement('audio')
     audio.src = url
     audio.oncanplay = function () {
@@ -28,13 +38,10 @@ $(function () {
       audio.play()
       $('.disc-container').addClass('playing')
     })
-  })
+  }
 
-
-  $.get('./lyric.json').then(function (object) {
-    let {
-      lyric
-    } = object
+  //请求歌曲时间，歌词
+  function parseMusicLyric(lyric) {
     let array = lyric.split('\n')
     let regex = /^\[(.+)\](.*)$/
     array = array.map(function (string) {
@@ -56,7 +63,12 @@ $(function () {
         html: object.word
       }).appendTo($lyric.children('.lines'))
     })
-  })
-
+  }
+  // $.get('./lyric.json').then(function (object) {
+  //   let {
+  //     lyric
+  //   } = object
+  //   parseMusicLyric.call(null, lyric)
+  // })
 
 })
