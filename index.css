@@ -86,7 +86,7 @@ section>h2:first-child {
 /*点击触发下划线*/
 .sitenav>ol>li.active>span {
   border-bottom: 2px solid #d43c33;
-  font-size: 15px;
+  font-size: 4vw;
 }
 
 .playlists {
