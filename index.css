@@ -108,7 +108,7 @@ section>h2:first-child {
 }
 
 .playlists>ul>li>p {
-  font-size: 13px;
+  font-size: 3.5vw;
   padding: 6px 2px 0 6px;
   color: #333;
   display: -webkit-box;

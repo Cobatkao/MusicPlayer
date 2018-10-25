@@ -114,24 +114,24 @@ a {
   color: #fefefe;
   text-align: center;
   line-height: 2;
-  margin-top: 25px;
+  margin-top: 6.7vw;
   flex-grow: 1;
 }
 
 .song-description>h2 {
-  font-size: 18px;
+  font-size: 4.8vw;
 }
 
 .song-description>.lyric {
-  font-size: 14px;
-  height: 90px;
+  font-size: 3.7vw;
+  height: 24vw;
   overflow: hidden;
 }
 
 .song-description>.lyric>.lines>p {
-  line-height: 24px;
+  line-height: 6.4vw;
   color: #888;
-  padding-bottom: 8px;
+  padding-bottom: 2.13vw;
 }
 
 .song-description>.lyric>.lines>p.active {
@@ -143,8 +143,8 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 10px;
-  margin-bottom: 10px;
+  padding: 0 2.67vw;
+  margin-bottom: 2.67vw;
 }
 
 .page>.links>a {
@@ -163,5 +163,5 @@ a {
 .page>.links>a.btn-download {
   background: #d43b32;
   color: #fff;
-  margin-left: 10px;
+  margin-left: 2.67vw;
 }
