@@ -42,19 +42,21 @@ $(function () {
     if($li.attr('data-downloaded') === 'yes') {
       return
     } else {
-      if(index === 1) {
-        $.get('./hot.json').then(function(response) {
-        $li.text(response.content)
-        console.log(response)
-        $li.attr('data-downloaded', 'yes')
-        })
-      } else if(index === 2) {
-        $.get('./search.json').then(function(response) {
-        $li.text(response.content)
-        console.log(response)
-        $li.attr('data-downloaded', 'yes')
-        }
-      )}
+      setTimeout(function() {
+        if(index === 1) {
+          $.get('./hot.json').then(function(response) {
+          $li.text(response.content)
+          console.log(response)
+          $li.attr('data-downloaded', 'yes')
+          })
+        } else if(index === 2) {
+          $.get('./search.json').then(function(response) {
+          $li.text(response.content)
+          console.log(response)
+          $li.attr('data-downloaded', 'yes')
+          }
+        )}
+      }, 500)
     }
   })
 })
