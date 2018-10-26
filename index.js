@@ -29,6 +29,7 @@ $(function () {
     let $li = $(e.currentTarget).addClass('active')
     $li.siblings().removeClass('active')
     let index = $li.index()
+    // console.log(index)
     //自定义tab切换事件
     $li.trigger('tabChange', index)
     $('.tabContent > li').eq(index).addClass('active')
@@ -36,14 +37,24 @@ $(function () {
   })
   //冒泡监听自定义事件
   $('.siteNav').on('tabChange', function(e, index) {
-    if(index === 1) {
-      $.get('./hot.json').then(function(response) {
+    let $li = $('.tabContent > li').eq(index)
+    //检查该页面是否下载过
+    if($li.attr('data-downloaded') === 'yes') {
+      return
+    } else {
+      if(index === 1) {
+        $.get('./hot.json').then(function(response) {
+        $li.text(response.content)
         console.log(response)
-      })
-    } else if(index === 2) {
-      $.get('./search.json').then(function(response) {
+        $li.attr('data-downloaded', 'yes')
+        })
+      } else if(index === 2) {
+        $.get('./search.json').then(function(response) {
+        $li.text(response.content)
         console.log(response)
-      }
-    )}
+        $li.attr('data-downloaded', 'yes')
+        }
+      )}
+    }
   })
 })
