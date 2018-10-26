@@ -30,6 +30,15 @@ h3 {
   font-weight: normal;
 }
 
+/*控制tab*/
+ol.tabContent > li.active {
+  display: block;
+}
+
+ol.tabContent > li {
+  display: none;
+}
+
 section>h2:first-child {
   font-size: 4.5vw;
   border-left: 2px solid #d33a31;
@@ -61,22 +70,22 @@ section>h2:first-child {
   padding: 0 10px;
 }
 
-.sitenav>ol {
+.siteNav>ol {
   display: flex;
   text-align: center;
   border-bottom: 1px solid #ccc;
   cursor: pointer;
 }
 
-.sitenav>ol>li {
+.siteNav>ol>li {
   flex: 1;
 }
 
-.sitenav>ol>li.active {
+.siteNav>ol>li.active {
   color: #d43c33;
 }
 
-.sitenav>ol>li>span {
+.siteNav>ol>li>span {
   display: inline-block;
   height: 11vw;
   line-height: 11vw;
@@ -84,7 +93,7 @@ section>h2:first-child {
 }
 
 /*点击触发下划线*/
-.sitenav>ol>li.active>span {
+.siteNav>ol>li.active>span {
   border-bottom: 2px solid #d43c33;
   font-size: 4vw;
 }
