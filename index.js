@@ -25,80 +25,89 @@ $(function () {
     console.log('请求失败')
   })
 
-  $('.siteNav').on('click', 'ol.tabItems>li', function(e) {
-    let $li = $(e.currentTarget).addClass('active')
-    $li.siblings().removeClass('active')
+  //点击nav，跳转页面
+  $('.siteNav').on('click', 'ol.tabItems>li', function (e) {
+    let $li = $(e.currentTarget)
+    $li.addClass('active').siblings().removeClass('active')
     let index = $li.index()
-    // console.log(index)
-    //自定义tab切换事件
+    $('.tabContent > li').eq(index).addClass('active').siblings().removeClass('active')
     $li.trigger('tabChange', index)
-    $('.tabContent > li').eq(index).addClass('active')
-    $('.tabContent > li').eq(index).siblings().removeClass('active')
   })
-  //冒泡监听自定义事件
-  $('.siteNav').on('tabChange', function(e, index) {
+
+  //监听自定义tab切换事件
+  $('.siteNav').on('tabChange', function (e, index) {
     let $li = $('.tabContent > li').eq(index)
     //检查该页面是否下载过
-    if($li.attr('data-downloaded') === 'yes') {
+    if ($li.attr('data-downloaded') === 'yes') {
       return
     } else {
-      setTimeout(function() {
-        if(index === 1) {
-          $.get('./hot.json').then(function(response) {
-          $li.text(response.content)
-          console.log(response)
-          $li.attr('data-downloaded', 'yes')
+      setTimeout(function () {
+        if (index === 1) {
+          $.get('./hot.json').then(function (response) {
+            $li.text(response.content)
+            $li.attr('data-downloaded', 'yes')
           })
-        } else if(index === 2) {
+        } else if (index === 2) {
           return
-          $.get('./search.json').then(function(response) {
-          $li.text(response.content)
-          console.log(response)
-          $li.attr('data-downloaded', 'yes')
-          }
-        )}
-      }, 500)
+          $.get('./search.json').then(function (response) {
+            $li.text(response.content)
+            $li.attr('data-downloaded', 'yes')
+          })
+        }
+      }, 1000)
     }
   })
-  
+
   let timer = null
-  $('#searchSong').on('input', (e)=>{
+  $('#searchSong').on('input', (e) => {
     //函数防抖处理
-    if(timer) {
+    if (timer) {
       clearTimeout(timer)
     }
     let $input = $(e.currentTarget)
     let inputValue = $input.val().trim()
-    if(inputValue == '') {return}
+    if (inputValue == '') {
+      return
+    }
 
-    timer = setTimeout(()=>{
+    timer = setTimeout(() => {
       //调用搜索函数
-      search(inputValue).then((result)=>{
+      search(inputValue).then((result) => {
         timer = undefined
         console.log(result)
-        if(result.length !== 0) {
-          $('#output').text(result.map((r)=>{return r.name}))
+        if (result.length !== 0) {
+          $('#output').text(result.map((r) => {
+            return r.name
+          }))
         } else {
           $('#output').text('搜索无结果')
         }
       })
-    },300)
+    }, 300)
   })
 
   function mockSearch(keyword) {
     console.log('开始搜索' + 'keyword')
-    return new Promise((resolve, reject)=>{
-      var database = [
-        {"songid": 1, "name": "关于郑州的回忆",},
-        {"songid": 2, "name": "梵高先生",},
-        {"songid": 3, "name": "太平洋的风",}
+    return new Promise((resolve, reject) => {
+      var database = [{
+          "songid": 1,
+          "name": "关于郑州的回忆",
+        },
+        {
+          "songid": 2,
+          "name": "梵高先生",
+        },
+        {
+          "songid": 3,
+          "name": "太平洋的风",
+        }
       ]
-      let result = database.filter((key)=>{
+      let result = database.filter((key) => {
         return key.name.indexOf(keyword) >= 0
       })
-      setTimeout(()=>{
+      setTimeout(() => {
         console.info('已经检索到' + keyword + "的结果！")
-        //在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；
+        //在异步操作成功时调用，将异步操作的结果，作为参数传递出去；
         resolve(result)
       }, (Math.random() * 1000)) //容易造成乱序bug
     })

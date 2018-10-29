@@ -34,6 +34,10 @@ h3 {
   font-weight: normal;
 }
 
+ol.tabContent {
+  margin-top: 33.67vw;
+}
+
 /*控制tab*/
 ol.tabContent > li.active {
   display: block;
@@ -56,9 +60,17 @@ section>h2:first-child {
   line-height: 1;
 }
 
+.sticky-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 .topbar {
   background: #d43c33;
-  height: 17.1vw;
+  /* height: 17.1vw; */
   padding: 0 10px;
   display: flex;
   align-items: center;
@@ -86,6 +98,7 @@ section>h2:first-child {
   text-align: center;
   border-bottom: 1px solid #ccc;
   cursor: pointer;
+  background: rgb(255, 255, 255);
 }
 
 .siteNav>ol>li {
