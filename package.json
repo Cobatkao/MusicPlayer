@@ -1,0 +1,23 @@
+{
+  "name": "MusicPlayer",
+  "version": "1.0.0",
+  "description": "## 需求",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cobatkao/MusicPlayer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cobatkao/MusicPlayer/issues"
+  },
+  "homepage": "https://github.com/Cobatkao/MusicPlayer#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
