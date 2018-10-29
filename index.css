@@ -67,12 +67,14 @@ section>h2:first-child {
 }
 
 .topbar>.download-app {
-  line-height: 8.5vw;
+  line-height: 17vw;
   border: 1px solid #fff;
-  border-radius: 4.25vw;
+  border-radius: 10vw;
+  transform: scale(0.5);
+  transform-origin: right center;
   color: #fff;
-  font-size: 15px;
-  padding: 0 10px;
+  font-size: 30px;
+  padding: 0 20px;
 }
 
 .siteNav>ol {
