@@ -9,6 +9,10 @@
   box-sizing: border-box
 }
 
+input {
+  outline: none;
+}
+
 body {
   font-family: Helvetica, sans-serif;
   font-size: 3.7vw;
@@ -223,4 +227,44 @@ section.art>.copyright {
   line-height: 16px;
   text-align: center;
   transform: scale(.75);
+}
+
+li#inputArea {
+  padding: 15px 10px;
+}
+
+li#inputArea > .inputOver {
+  position: relative;
+  width: 100%;
+  height: 8vw;
+  padding: 0 8vw;
+  background: #ebecec;
+  border-radius: 8vw;
+  display: flex;
+  align-items: center;
+}
+
+li#inputArea .icon-search {
+  fill: #c9c9c9;
+  width: 5vw;
+  height: 5vw;
+  position: absolute;
+  left: 7px;
+}
+
+li#inputArea #searchSong {
+  width: 100%;
+  height: 8vw;
+  background: transparent;
+  font-size: 14px;
+  border: 1px solid #ebecec;
+}
+
+li#inputArea .placeholder {
+  position: absolute;
+  left: 30px;
+  top: 5px;
+  color: rgba(0, 0, 0, .3);
+  font-size: 14px;
+  pointer-events: none;
 }

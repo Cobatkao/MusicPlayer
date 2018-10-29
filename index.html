@@ -168,16 +168,19 @@
         <img src="./img/spin.gif" alt="">
       </p>
     </li>
-    <li>
-      <!-- <p id="tabContent-item">
-            <img src="./img/spin.gif" alt="">
-          </p> -->
-      <input id="searchSong" type="text" placeholder="搜索歌曲、歌手、专辑" style="border: 1px solid orangered;">
+    <li id="inputArea">
+      <div class="inputOver">
+        <svg class="icon icon-search">
+            <use xlink:href="#icon-search"></use>
+        </svg>
+        <input id="searchSong" name="search" type="search" placeholder value autocomplete="off">
+        <label class="placeholder">搜索歌曲、歌手、专辑</label>
+      </div>
       <div id="output"></div>
     </li>
   </ol>
 
-  <script src="http://at.alicdn.com/t/font_886552_2p22867tlhq.js"></script>
+  <script src="http:////at.alicdn.com/t/font_886552_u8qbbvmsm6.js"></script>
   <script src="./node_modules/jquery/dist/jquery.min.js"></script>
   <script src="./index.js"></script>
 </body>
