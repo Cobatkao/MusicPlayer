@@ -52,7 +52,8 @@ ol.tabContent > li > p#tabContent-item {
   margin-top: 30vw;
 }
 
-section>h2:first-child {
+section>h2:first-child,
+#searchOutput>h2 {
   font-size: 4.5vw;
   border-left: 2px solid #d33a31;
   padding-left: 9px;
@@ -158,12 +159,14 @@ section>h2:first-child {
   margin-bottom: 15px;
 }
 
-.latestmusic>#latestmusic-loading {
+.latestmusic>#latestmusic-loading,
+.hitSongs>#latestmusic-loading {
   width: 13.3vw;
   margin: 0 auto;
 }
 
-.latestmusic>#latestmusic-loading>.line-scale > div {
+.latestmusic>#latestmusic-loading>.line-scale>div,
+.hitSongs>#latestmusic-loading>.line-scale>div {
   background-color: #d33a31;
 }
 
@@ -281,13 +284,4 @@ li#inputArea #searchSong {
   background: transparent;
   font-size: 14px;
   border: 1px solid #ebecec;
-}
-
-li#inputArea .placeholder {
-  position: absolute;
-  left: 30px;
-  top: 5px;
-  color: rgba(0, 0, 0, .3);
-  font-size: 14px;
-  pointer-events: none;
 }

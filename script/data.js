@@ -54,3 +54,30 @@ query.find().then(function(result) {
   alert('歌曲获取失败')
 })
 
+//搜索模块
+$('#searchSong').on('input', function(e) {
+  let $input = $(e.currentTarget)
+  let inputValue = $input.val().trim()
+  if(inputValue === '') {
+    $('#songOutput').empty()
+    return
+  }
+  var query = new AV.Query('Song');
+  query.contains('name', inputValue)
+  query.find().then(function (results) {
+    $('#songOutput').empty()
+    if(results.length === 0) {
+      $('#songOutput').html('<div>未搜索到您要的结果😢</div>')
+    } else {
+      for(let i = 0; i < results.length; i++) {
+        let song = results[i].attributes
+        let $ct = `
+          <div data-id="${song.objectId}">${song.singer} - ${song.name}</div>
+        `
+        $('#songOutput').append($ct)
+      }
+    }
+    }, function (error) {
+      console.log("搜索数据失败")
+    });
+})
