@@ -1,3 +1,7 @@
+/**
+ * 重置样式
+ */
+
 * {
   padding: 0;
   margin: 0;
@@ -9,8 +13,25 @@
   box-sizing: border-box
 }
 
-input {
+/* 重写边框样式 */
+input[type=search]{
+  border-radius: 5px;
+  border: 1px solid #ebebeb;
+  width: 98%;
+  height: 30px;
   outline: none;
+  background: transparent;
+  font-size: 14px;
+  -webkit-appearance: none;
+}
+
+/* 重写占位符样式 */
+input[type=search]::-webkit-input-placeholder{
+  color: #d33a31;
+}
+
+input[type=search]::-webkit-search-results-button {
+  -webkit-appearance: none; 
 }
 
 body {
@@ -33,6 +54,10 @@ h2,
 h3 {
   font-weight: normal;
 }
+
+/**
+ * 首页样式
+ */
 
 ol.tabContent {
   margin-top: 28.6vw;
@@ -268,6 +293,7 @@ li#inputArea > .inputOver {
   border-radius: 8vw;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 li#inputArea .icon-search {
@@ -278,10 +304,12 @@ li#inputArea .icon-search {
   left: 7px;
 }
 
-li#inputArea #searchSong {
-  width: 100%;
-  height: 8vw;
-  background: transparent;
-  font-size: 14px;
-  border: 1px solid #ebecec;
+div#searchOutput>#songOutput {
+  display: flex;
+  justify-content: center;
+}
+
+#songOutput>div.vain {
+  color: #888;
+  margin-top: 10px;
 }

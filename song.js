@@ -92,11 +92,4 @@ $(function () {
       }).appendTo($lyric.children('.lines'))
     })
   }
-  // $.get('./lyric.json').then(function (object) {
-  //   let {
-  //     lyric
-  //   } = object
-  //   parseMusicLyric.call(null, lyric)
-  // })
-
 })
