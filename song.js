@@ -49,7 +49,7 @@ $(function () {
       let time = `${fillingZero(minute)}:${fillingZero(leftTime)}`
       console.log(time)
       let $lines = $('.lines > p')
-      let theVeryLine
+      let $theVeryLine
       for(let i = 0; i < $lines.length; i++) {
         if($lines.eq(i).attr("data-time") < time && $lines.eq(i+1).attr("data-time") > time) {
           $theVeryLine = $lines.eq(i)

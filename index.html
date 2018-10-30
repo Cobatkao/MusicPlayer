@@ -8,10 +8,12 @@
   <link rel="shortcut icon" href="./favicon.ico">
   <title>网易云音乐</title>
   <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./vendors/loaders.min.css">
 </head>
 
 <body>
   <div class="sticky-bar">
+    <!-- 顶部标题栏 -->
     <header class="topbar">
       <svg class="logosvg" viewBox="0 0 1238 231" xmlns="http://www.w3.org/2000/svg">
         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -53,7 +55,7 @@
       </svg>
       <a class="download-app" href="#">下载APP</a>
     </header>
-    
+    <!-- 选项切换栏 -->
     <nav class="siteNav">
       <ol class="tabItems">
         <li class="active">
@@ -70,6 +72,7 @@
   </div>
 
   <ol class="tabContent">
+    <!-- 推荐音乐页面 -->
     <li class="page-1 active">
       <section class="playlists">
         <h2>推荐歌单</h2>
@@ -102,11 +105,13 @@
       </section>
       <section class="latestmusic">
         <h2>最新音乐</h2>
-        <p id="latestmusic-loading">
-          <img src="./img/spin.gif" alt="">
-        </p>
-        <ol id="latestmusic-wrap"></ol>
+        <div id="latestmusic-loading">
+            <div class="line-scale"><div></div><div></div><div></div><div></div><div></div></div>
+            <!-- <div class="square-spin"><div></div></div> -->
+        </div>
+        <ol id="latestmusic-wrapper"></ol>
       </section>
+      <!-- 底部栏 -->
       <section class="art">
         <div class="logo">
           <svg class="logosvg" viewBox="0 0 1238 231" xmlns="http://www.w3.org/2000/svg">
@@ -165,11 +170,13 @@
         </div>
       </section>
     </li>
+    <!-- 热歌榜页面 -->
     <li class="page-2">
       <p id="tabContent-item">
         <img src="./img/spin.gif" alt="">
       </p>
     </li>
+    <!-- 搜索页面 -->
     <li class="page-3" id="inputArea">
       <div class="inputOver">
         <svg class="icon icon-search">
@@ -183,9 +190,10 @@
   </ol>
 
   <script src="http:////at.alicdn.com/t/font_886552_u8qbbvmsm6.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- <script src="./node_modules/jquery/dist/jquery.min.js"></script> -->
+  <script src="./vendors/jquery.min.js"></script>
+  <script src="./vendors/av-min.js"></script>
   <script src="./index.js"></script>
+  <script src="./script/data.js"></script>
 </body>
 
 </html>

@@ -153,8 +153,13 @@ section>h2:first-child {
   margin-bottom: 15px;
 }
 
-.latestmusic>p {
-  text-align: center;
+.latestmusic>#latestmusic-loading {
+  width: 13.3vw;
+  margin: 0 auto;
+}
+
+.latestmusic>#latestmusic-loading>.line-scale > div {
+  background-color: #d33a31;
 }
 
 .latestmusic>ol {
