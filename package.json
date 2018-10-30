@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Cobatkao/MusicPlayer#readme",
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "leancloud-storage": "^3.10.0",
+    "loaders.css": "^0.1.2"
   }
 }
