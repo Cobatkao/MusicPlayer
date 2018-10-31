@@ -1,37 +1,35 @@
-var APP_ID = 'sEuCbQa4uemoiTAwR26yX2Rg-gzGzoHsz';
-var APP_KEY = 'Khq0CnYeBxIkRDEll8AO1ire';
 
-//初始化AV对象
-AV.init({
-  appId: APP_ID,
-  appKey: APP_KEY
-});
 
-var query = new AV.Query('Song');
+//最新音乐模块
+var query = new AV.Query('Song')
 query.find().then(function(result) {
   $('#latestmusic-loading').remove()
+  console.log(result.length)
+  console.log('-----------------------')
   for(let i = 0; i < result.length; i++) {
     let song = result[i].attributes
-    let $li = `
-      <li>
-        <a href="./song.html?songid=${song.songid}">
-          <h3>${song.name}</h3>
-          <p class="song-info">
-            <svg class="icon icon-sq">
-              <use xlink:href="#icon-sq"></use>
-            </svg>
-            <span>${song.singer}</span>
-          </p>
-          <svg class="icon icon-play">
-            <use xlink:href="#icon-play"></use>
+    console.log(song)
+    let $Nli = `
+    <li>
+      <a href="../song.html?id=${result[i].id}">
+        <h3>${song.name}</h3>
+        <p class="song-info">
+          <svg class="icon icon-sq">
+            <use xlink:href="#icon-sq"></use>
           </svg>
-        </a>
-      </li>
-    `
-    $('#latestmusic-wrapper').append($li)
+          <span>${song.singer}</span>
+        </p>
+        <svg class="icon icon-play">
+          <use xlink:href="#icon-play"></use>
+        </svg>
+      </a>
+    </li>
+  `
+    console.log($Nli)
+    $('#latestmusic-wrapper').append($Nli)
   }
 }, function(error) {
-  alert('歌曲获取失败')
+  console.log('歌曲获取失败')
 })
 
 //搜索模块
@@ -65,7 +63,7 @@ $('#searchSong').on('input', function(e) {
       for(let i = 0; i < results.length; i++) {
         let song = results[i].attributes
         let $ct = `
-          <div data-id="${song.objectId}">
+          <div data-id="${results[i].id}">
             <a href="../song.html?id=${results[i].id}">${song.singer} - ${song.name}</a>
           </div>
         `
