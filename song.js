@@ -1,21 +1,17 @@
 $(function () {
-  let id = parseInt(location.search.match(/\bsongid=([^&]*)/)[1])
-  $.get('./songs.json').then(function (response) {
-    let verysong = response
-    // debugger
-    let songs = verysong.filter((n) =>
-      n.songid === id
-    )[0]
-    //解构获取url
-    let {
-      url, name, singer, lyric
-    } = songs
+
+  let id = location.search.match(/(\?|&)([a-z]{2}\=)([a-zA-Z0-9]*)/)[3]
+  var query = new AV.Query('Song')
+  query.get(id).then(function(song) {
+    let {cover, id, lyc, name, singer, url} = song.attributes
     initMusicplayer.call(null, url)
-    initSongInfo(name, singer, lyric)
+    initSongInfo(name, singer, lyc)
+  }, function(error) {
+    console.log('Song对象获取失败')
   })
 
   //拼装歌名、歌手、歌词区域
-  function initSongInfo(name, singer, lyric) {
+  function initSongInfo(name, singer, lyc) {
     $('.song-description > h2').text(name + ' - ' + singer)
     parseMusicLyric.call(null, lyric)
   }
@@ -24,7 +20,11 @@ $(function () {
     return num >= 10 ? num + '' : '0' + num
   }
 
-  //请求歌曲url
+  /*
+  * initMusicplayer(url)
+  * 1. 控制转盘播放、暂停
+  * 2. 歌词处理
+  */
   function initMusicplayer(url) {
     let audio = document.createElement('audio')
     audio.src = url
@@ -32,15 +32,24 @@ $(function () {
       audio.play()
       $('.disc-container').addClass('playing')
     }
+
+    //修复移动端跳转后无法自动播放
+    $('html').one('touchstart',function () {
+			audio.play();
+			$('.disc-container').addClass('playing')
+		})
     $('.icon-pause').on('click', function () {
+      console.log('歌曲暂停')
       audio.pause()
       $('.disc-container').removeClass('playing')
     })
     $('.icon-play').on('click', function () {
+      console.log('歌曲播放')
       audio.play()
       $('.disc-container').addClass('playing')
     })
 
+    //截取歌词
     setInterval(()=>{
       let second = audio.currentTime
       let minute = ~~(second / 60)
@@ -68,8 +77,12 @@ $(function () {
     },300)
   }
 
-  //请求歌曲时间，歌词
-  function parseMusicLyric(lyric) {
+  /*
+  * parseMusicLyric(lyc)
+  * 1. 控制转盘播放、暂停
+  * 2. 歌词处理
+  */
+  function parseMusicLyric(lyc) {
     let array = lyric.split('\n')
     let regex = /^\[(.+)\](.*)$/
     array = array.map(function (string) {
