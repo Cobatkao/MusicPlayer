@@ -4,11 +4,8 @@
 var query = new AV.Query('Song')
 query.find().then(function(result) {
   $('#latestmusic-loading').remove()
-  console.log(result.length)
-  console.log('-----------------------')
   for(let i = 0; i < result.length; i++) {
     let song = result[i].attributes
-    console.log(song)
     let $Nli = `
     <li>
       <a href="../song.html?id=${result[i].id}">
@@ -25,7 +22,6 @@ query.find().then(function(result) {
       </a>
     </li>
   `
-    console.log($Nli)
     $('#latestmusic-wrapper').append($Nli)
   }
 }, function(error) {
